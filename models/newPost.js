@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Gallery extends Model {}
+class NewPost extends Model {}
 
-Gallery.init(
+Dashboard.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,16 +11,12 @@ Gallery.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    newTitle: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    starting_date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    ending_date: {
-      type: DataTypes.DATE,
+    newContent: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
@@ -32,4 +28,4 @@ Gallery.init(
   }
 );
 
-module.exports = Gallery;
+module.exports = NewPost;
