@@ -1,0 +1,14 @@
+[
+    {
+      "title": "The Importance of MVC",
+      "content": "I have been practicing MVC. If you can get this down, it will be easier to create a full stack application!"
+    },
+    {
+      "title": "Using Insomnia",
+      "content": "I have been using insomnia application to get my POST, PUT, GET, and DELETE routes. It helps me a lot with my API routes and syncing up the MySQL Database"
+    },
+    {
+      "title": "Application idea",
+      "content": "For my next project, I have been thinking about creating a budget tracker"
+    }
+  ]
