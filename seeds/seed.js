@@ -18,7 +18,7 @@ const seedDatabase = async () => {
     await Comment.bulkCreate(commentData, {}); 
       console.log('\n----- COMMENTS DATA SYNCED -----\n')
   
-      await NewPost.bulkCreate(postData, {}); 
+    await NewPost.bulkCreate(postData, {}); 
       console.log('\n----- TECH BLOG POST DATA SYNCED -----\n')
   
     process.exit(0);
