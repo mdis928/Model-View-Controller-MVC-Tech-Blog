@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { NewPost, NewPost } = require('../../models');
+const { NewPost } = require('../../models');
 
 // To create a new post in the tech blog
 router.post('/', async (req, res) => {
