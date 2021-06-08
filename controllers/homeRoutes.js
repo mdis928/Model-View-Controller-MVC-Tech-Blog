@@ -32,4 +32,20 @@ router.get('/login', (req, res) => {
   res.render('signup');
 });
 
+router.get('/dashboard', async (req, res) => {
+    console.log('hello')
+  try {
+    const postData = await NewPost.findAll({
+    });
+
+    console.log(postData)
+
+    res.render('dashboard', {postData});
+
+}   catch (err) {
+    res.status(400).json(err);
+}
+
+});
+
 module.exports = router;
