@@ -12,14 +12,15 @@ router.get('/', withAuth, async (req, res) => {
 
     const users = userData.map((User) => User.get({ plain: true }));
 
-    res.render('/homepage', {
-      users,
-      // Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+    res.render('login', {
+     layout: 'dashboard',
+     users,
+    //  Passed the logged in flag to the template
+    logged_in: req.session.logged_in,
+  });
+} catch (err) {
+  res.status(500).json(err);
+}
 });
 
 router.get('/login', (req, res) => {
