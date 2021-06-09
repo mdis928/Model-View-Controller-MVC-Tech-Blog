@@ -6,7 +6,7 @@ function loginForm (event) {
   
   
       // Send a POST request to the API endpoint
-      const response =  fetch('/api/userRoutes/login', {
+      const response =  fetch('/api/User', {
         method: 'POST',
         body: JSON.stringify({ username : email.value, password : password.value }),
         headers: { 'Content-Type': 'application/json' },
@@ -14,7 +14,7 @@ function loginForm (event) {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/login');
+        document.location.replace('/newPost');
       } else {
         alert(response.statusText);
       }

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User } = require('../../models');
 
 // Find all users
-router.get('/login', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
       const userData = await User.findAll({
           ...req.body,
@@ -16,7 +16,7 @@ router.get('/login', async (req, res) => {
 });
 
 // To create an user
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
       const userData = await User.create(req.body);
   
@@ -29,12 +29,12 @@ router.post('/login', async (req, res) => {
     } catch (err) {
       res.status(400).json(err);
     }
-  });
+});
   
-  router.post('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
     console.log(req.body)
     try {
-      const userData = await User.findOne({ where: { email: req.body.username } });
+      const userData = await User.findOne({ where: { email: req.body.email } });
   
       if (!userData) {
         res
