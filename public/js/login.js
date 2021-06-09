@@ -6,9 +6,9 @@ function loginForm (event) {
   
   
       // Send a POST request to the API endpoint
-      const response =  fetch('/api/User', {
+      const response =  fetch('/api/users/login', {
         method: 'POST',
-        body: JSON.stringify({ username : email.value, password : password.value }),
+        body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
