@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 // To create a new post in the tech blog
 router.post('/', async (req, res) => {
     try {
+      console.log(req.body);
         const NewPostData = await NewPost.create({
             ...req.body,
             user_id: req.session.user_id,
@@ -25,6 +26,7 @@ router.post('/', async (req, res) => {
 
         res.status(200).json(NewPostData);
     }   catch (err) {
+      console.log(err)
         res.status(400).json(err);
     }
 });
