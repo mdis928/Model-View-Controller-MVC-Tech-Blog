@@ -1,4 +1,4 @@
-function loginForm (event) {
+const loginForm = async (event) => {
   event.preventDefault ()
 
   const email = document.querySelector('#email-login').value.trim();
@@ -6,15 +6,15 @@ function loginForm (event) {
 
 
     // Send a POST request to the API endpoint
-    const response =  fetch('/api/users/login', {
+    const response = await  fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
+console.log(response);
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/newPost');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
@@ -28,7 +28,7 @@ function signupFormHandler (event) {
   const password = document.querySelector('#password-signup').value.trim();
 
   if (name && email && password) {
-    const response = fetch('/api/userRoutes', {
+    const response = fetch('/api/users', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },

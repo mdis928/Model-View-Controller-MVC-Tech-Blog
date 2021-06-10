@@ -14,21 +14,27 @@ router.get('/', async (req, res) => {
      posts,
     logged_in: req.session.logged_in,
   });
+  // res.render('login')
 } catch (err) {
   res.status(500).json(err);
 }
 });
 
+
+
+// To get to the login/signup page
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/homepage');
+    res.redirect('/');
     return;
   }
 
   res.render('login');
 });
 
-router.get('/dashboard', async (req, res) => {
+
+
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await NewPost.findAll();
 
