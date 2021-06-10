@@ -17,7 +17,7 @@
 
 // };
 
-// // document    
-// //     .querySelector('#post-title')
-// //     .addEventListener('submit', newFormHandler)
+// document    
+//     .querySelector('#post-title')
+//     .addEventListener('submit', newFormHandler)
 
