@@ -1,21 +1,17 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, NewPost } = require('../models');
 const withAuth = require('../util/auth');
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['username', 'ASC']],
-    });
+    const postData = await NewPost.findAll();
 
-    const users = userData.map((User) => User.get({ plain: true }));
+    const posts = postData.map((posts) => posts.get({ plain: true }));
 
-    res.render('login', {
-     layout: 'dashboard',
-     users,
-    //  Passed the logged in flag to the template
+    res.render('homepage', {
+     layout: 'main',
+     posts,
     logged_in: req.session.logged_in,
   });
 } catch (err) {
@@ -24,29 +20,29 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/homepage');
     return;
   }
 
-  res.render('signup');
+  res.render('login');
 });
 
 router.get('/dashboard', async (req, res) => {
-    console.log('hello')
   try {
-    const postData = await NewPost.findAll({
-    });
+    const postData = await NewPost.findAll();
 
-    console.log(postData)
+    const posts = postData.map((posts) => posts.get({ plain: true }));
 
-    res.render('dashboard', {postData});
-
-}   catch (err) {
-    res.status(400).json(err);
+    res.render('dashboard', {
+     layout: 'main',
+     posts,
+    logged_in: req.session.logged_in,
+  });
+} catch (err) {
+  res.status(500).json(err);
 }
-
 });
+
 
 module.exports = router;
