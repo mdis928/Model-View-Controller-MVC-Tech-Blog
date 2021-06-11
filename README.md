@@ -35,3 +35,6 @@ Make sure you have all of the dependencies installed. Then you can use local hos
 
 ## Questions
 Please note I will resubmitting and working on this homwork in the future. I have some fuctionality but not all.
+
+https://mdis928techblog.herokuapp.com/login
+https://github.com/mdis928/Model-View-Controller-MVC-Tech-Blog
