@@ -10,8 +10,9 @@ This homework was to use CRUD and use them with handlebars. Together we can use 
 * [Contributions] (#contributions)
 * [Tests] (#tests)
 * [Questions] (#questions)
+
 ## Installiations
-crypt, connect-session-sequelize, dotenv, eslint, express, express-handlebars express-session, mysql2, nodemon, sequelize
+bcrypt, connect-session-sequelize, dotenv, eslint, express, express-handlebars express-session, mysql2, nodemon, sequelize
 
 ## Usage
 The usage is full stack development. This homework has front-end and back-end.
